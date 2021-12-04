@@ -15,7 +15,7 @@ var main = function () {
         }
         ;
         var caso = false;
-        regla.forEach(function (letra) { if (oveja.name.indexOf(letra) !== -1) {
+        regla.forEach(function (letra) { if (oveja.name.includes(letra)) {
             caso = true;
         } });
         if (!caso) {
