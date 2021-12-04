@@ -1,30 +1,22 @@
 "use strict";
 console.clear();
-var arrayovejas = [
-    { name: 'Noa', colour: 'azul' },
-    { name: 'Euge', colour: 'rojo' },
-    { name: 'Navidad', colour: 'rojo' },
-    { name: 'Ki Na Ma', colour: 'rojo' }
-];
-var regla = ['A', 'a', 'N', 'n'];
+var carta = 'bici coche balón _playstation bici coche peluche'.split(' ');
 var main = function () {
-    var nuevoarray = [];
-    arrayovejas.forEach(function (oveja) {
-        if (oveja.colour !== "rojo") {
-            return;
+    var regexp = new RegExp(/[^a-zA-Záéíóú]/g);
+    carta.forEach(function (undefined, index) { if (!!carta[index].match(regexp)) {
+        carta.splice(index, 1);
+    } });
+    var cartaobjeto = {};
+    carta.forEach(function (obj) {
+        if (cartaobjeto[obj]) {
+            cartaobjeto[obj]++;
+        }
+        else {
+            cartaobjeto[obj] = 1;
         }
         ;
-        var caso = false;
-        regla.forEach(function (letra) { if (oveja.name.includes(letra)) {
-            caso = true;
-        } });
-        if (!caso) {
-            return;
-        }
-        ;
-        nuevoarray.push(oveja);
     });
-    console.log(nuevoarray);
+    console.log(cartaobjeto);
 };
 main();
 //# sourceMappingURL=app.js.map

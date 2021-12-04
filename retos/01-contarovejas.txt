@@ -17,7 +17,7 @@ const main = () => {
     let nuevoarray:any[] = [];
     arrayovejas.forEach( oveja => {
         if (oveja.colour !== "rojo"){return};
-        let caso:boolean = false ; regla.forEach(letra => {if(oveja.name.indexOf(letra) !== -1){caso = true}}) ; if(!caso){return};
+        let caso:boolean = false ; regla.forEach(letra => {if(oveja.name.includes(letra)){caso = true}}) ; if(!caso){return};
         nuevoarray.push(oveja);
     });
 
