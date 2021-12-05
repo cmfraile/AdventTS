@@ -1,6 +1,6 @@
 "use strict";
 console.clear();
-var carta = "bici coche (balón) bici coche peluche";
+var letter = "() bici";
 var main = function () {
     var esvalido = function (argumento) {
         var caso = true;
@@ -8,38 +8,38 @@ var main = function () {
             return false;
         }
         ;
-        var cartatf = carta.split('');
-        cartatf.forEach(function (x, index) { if (index < argumento.inicio) {
-            cartatf.shift();
+        var lettertf = letter.split('');
+        lettertf.forEach(function (x, index) { if (index < argumento.inicio) {
+            lettertf.shift();
         } });
         for (var i = (argumento.longitud - argumento.fin); i >= 2; i--) {
-            cartatf.pop();
+            lettertf.pop();
         }
         ;
-        cartatf.forEach(function (x, i) {
+        lettertf.forEach(function (x, i) {
             if (x == '(' || x == ')' || x == ' ') {
-                cartatf[i] = '';
+                lettertf[i] = '';
             }
         });
-        cartatf = cartatf.join('');
-        if (cartatf !== '') {
+        lettertf = lettertf.join('');
+        if (lettertf !== '') {
             caso = true;
         }
         else {
             caso = false;
         }
         ;
-        if (cartatf.match(/[\[\]\{\}]/)) {
+        if (lettertf.match(/[\[\]\{\}]/)) {
             return false;
         }
         ;
         return caso;
     };
     var analizar = {
-        carta: carta,
-        inicio: carta.indexOf('('),
-        fin: carta.indexOf(')'),
-        longitud: carta.length
+        letter: letter,
+        inicio: letter.indexOf('('),
+        fin: letter.indexOf(')'),
+        longitud: letter.length
     };
     analizar.validez = esvalido(analizar);
     console.log(analizar);
