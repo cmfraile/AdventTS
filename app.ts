@@ -1,44 +1,33 @@
 console.clear();
 
-const letter = "(muñeca) consola bici"
-const regla = ['[',']','{','}',' '];
+const carta = "bici coche (balón) bici coche peluche";
+interface analisis {carta:string,inicio:number,fin:number,longitud:number,validez?:boolean}
 
-const grinchck = (letter:string,inicio:number|undefined,fin:number|undefined) => {
-    if(inicio == undefined || fin == undefined){return false} ; if(inicio >= fin){return false} ;
-    let tfletter:any = letter.split('');
-    for(let i = 1 ; i < inicio ; i++){tfletter.shift()};
-    for(let i = (fin + 1) ; i <= (letter.length - 1) ; i++){tfletter.pop()};
-
-    //Compruebo si hay alguno simbolo ilegal entre los parentesis:
-    let caso = true;
-    regla.forEach( x => {
-        if(tfletter.includes(x)){caso = false};
-    });
-    if(!caso){return false};
-    
-    //Compruebo si el parentesis esta vacio:
-    console.log(tfletter)
-    tfletter.forEach((x:string,index:number) => {
-        regla.forEach((y:string) => {
-            if(x = y){tfletter.splice(index,1)}
+const main = () => {
+    const esvalido = (argumento:analisis):boolean => {
+        let caso = true;
+        if(argumento.inicio == -1 || argumento.fin == -1){return false};
+        let cartatf:any = carta.split('');
+        cartatf.forEach((x:any,index:any) => { if(index < argumento.inicio){cartatf.shift()} });
+        for(let i = (argumento.longitud - argumento.fin);i>=2;i--){cartatf.pop()};
+        cartatf.forEach((x:string,i:number) => {
+            if(x == '(' || x == ')' || x == ' '){cartatf[i] = ''}
         });
-    });
-    console.log(tfletter);
-    
-    tfletter = tfletter.join('');
-    if(tfletter.match(/[^a-zA-Záéíóú]/g)){return true}else{return false};
-    
-}
-
-const main = (letter:string) => {
-    const analisis:any = {
-        inicio : letter.indexOf('('),
-        fin : letter.indexOf(')'),
+        cartatf = cartatf.join('');
+        if(cartatf !== ''){caso = true}else{caso = false};
+        if(cartatf.match(/[\[\]\{\}]/)){return false};
+        return caso;
     }
-    analisis.check = grinchck(letter,analisis.inicio,analisis.fin);
-    console.log(analisis);
-    return analisis.check;
+    let analizar:analisis = {
+        carta,
+        inicio : carta.indexOf('('),
+        fin : carta.indexOf(')'),
+        longitud : carta.length
+    };
+    analizar.validez = esvalido(analizar);
+    console.log(analizar);
+    return analizar.validez;
 }
 
-//main(letter);
-main(letter)
+console.log(main());
+
