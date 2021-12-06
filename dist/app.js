@@ -1,49 +1,26 @@
 "use strict";
 console.clear();
-var letter = "() bici";
-var main = function () {
-    var esvalido = function (argumento) {
-        var caso = true;
-        if (argumento.inicio == -1 || argumento.fin == -1) {
-            return false;
+var main = function (altura) {
+    //let valor = Math.ceil((altura / 2));
+    var cadena = "";
+    for (var i = 1; i <= altura; i++) {
+        for (var y = 0; y <= altura - 1; y++) {
+            cadena = cadena + "_";
         }
-        ;
-        var lettertf = letter.split('');
-        lettertf.forEach(function (x, index) { if (index < argumento.inicio) {
-            lettertf.shift();
-        } });
-        for (var i = (argumento.longitud - argumento.fin); i >= 2; i--) {
-            lettertf.pop();
-        }
-        ;
-        lettertf.forEach(function (x, i) {
-            if (x == '(' || x == ')' || x == ' ') {
-                lettertf[i] = '';
+        cadena = cadena + "\n";
+    }
+    for (var i = 1; i <= 2; i++) {
+        for (var y = 1; y <= altura; y++) {
+            if (y == (Math.ceil(altura / 2))) {
+                cadena = cadena + "#";
             }
-        });
-        lettertf = lettertf.join('');
-        if (lettertf !== '') {
-            caso = true;
+            else {
+                cadena = cadena + "_";
+            }
         }
-        else {
-            caso = false;
-        }
-        ;
-        if (lettertf.match(/[\[\]\{\}]/)) {
-            return false;
-        }
-        ;
-        return caso;
-    };
-    var analizar = {
-        letter: letter,
-        inicio: letter.indexOf('('),
-        fin: letter.indexOf(')'),
-        longitud: letter.length
-    };
-    analizar.validez = esvalido(analizar);
-    console.log(analizar);
-    return analizar.validez;
+        cadena = cadena + "\n";
+    }
+    console.log(cadena);
 };
-console.log(main());
+main(5);
 //# sourceMappingURL=app.js.map
