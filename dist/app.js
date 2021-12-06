@@ -12,19 +12,10 @@ var main = function (altura) {
         return caso;
     };
     var ancho = generarancho();
-    /*
-    for(let i = 1 ; i <= altura ; i++ ){
-        let piso = "";
-        for( let y = 0 ; y <= altura -1 ; y++ ){
-            piso = piso + "*" ;
-        }
-        cadena = ancho + piso + ancho ;
-        cadena = cadena + "\n";
-    }
-    */
+    //hojas arbol de navidad:
     for (var i = 1; i <= altura; i++) {
-        var piso = ancho;
         if (i == 1) {
+            var piso = ancho;
             piso = piso + "*" + ancho;
             while (piso.length !== altura) {
                 piso = piso.split('');
@@ -36,9 +27,17 @@ var main = function (altura) {
             cadena = piso + "\n" + cadena;
             piso = ancho;
         }
-        for (var y = 1; y <= altura; y++) {
+        else {
+            var piso = ancho;
+            var contador = 1;
+            for (var y = 1; y <= (contador + 2); y++) {
+                piso = piso + "*";
+                piso = piso + ancho;
+                cadena = cadena + piso + "\n";
+                piso = ancho;
+            }
+            ;
         }
-        ;
     }
     //tronco del arbol de navidad:
     for (var i = 1; i <= 2; i++) {

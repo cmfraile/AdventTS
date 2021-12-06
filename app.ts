@@ -10,28 +10,21 @@ const main = (altura:number) => {
     }
     let ancho:string = generarancho();
 
-    /*
-    for(let i = 1 ; i <= altura ; i++ ){
-        let piso = "";
-        for( let y = 0 ; y <= altura -1 ; y++ ){
-            piso = piso + "*" ;
-        }
-        cadena = ancho + piso + ancho ;
-        cadena = cadena + "\n";
-    }
-    */
-
+    //hojas arbol de navidad:
     for(let i = 1 ; i <= altura ; i++){
-        let piso:any = ancho;
         if(i == 1){
+            let piso:any = ancho;
             piso = piso + "*" + ancho;
             while(piso.length !== altura){ piso = piso.split('') ; piso.shift() ; piso.pop() ; piso = piso.join('')};
             cadena = piso + "\n" + cadena;
             piso = ancho;
+        }else{
+            let piso:any = ancho;
+            let contador = 1;
+            for(let y = 1 ; y <= (contador + 2) ; y++){piso = piso + "*" };
+            piso = piso + ancho;
+            cadena = cadena + piso + "\n" ;
         }
-        for(let y = 1 ; y <= altura ; y++){
-
-        };
     }
 
     
