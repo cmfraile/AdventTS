@@ -1,24 +1,40 @@
 "use strict";
 console.clear();
 var main = function (altura) {
-    //let valor = Math.ceil((altura / 2));
+    var hojas = 1;
+    var ancho = altura - 1;
     var cadena = "";
+    //fabricamos las hojas:
     for (var i = 1; i <= altura; i++) {
-        for (var y = 0; y <= altura - 1; y++) {
-            cadena = cadena + "_";
+        var linea = "";
+        for (var y = 1; y <= ancho; y++) {
+            linea = linea + "_";
         }
-        cadena = cadena + "\n";
+        for (var y = 1; y <= hojas; y++) {
+            linea = linea + "*";
+        }
+        for (var y = 1; y <= ancho; y++) {
+            linea = linea + "_";
+        }
+        cadena = cadena + linea + "\n";
+        ancho--;
+        hojas = hojas + 2;
     }
+    //fabricamos el tronco:
     for (var i = 1; i <= 2; i++) {
-        for (var y = 1; y <= altura; y++) {
-            if (y == (Math.ceil(altura / 2))) {
-                cadena = cadena + "#";
+        var fabricatronco = function () {
+            var linea = "";
+            for (var i_1 = 1; i_1 <= (altura - 1); i_1++) {
+                linea = linea + "_";
             }
-            else {
-                cadena = cadena + "_";
+            linea = linea + "#";
+            for (var i_2 = 1; i_2 <= (altura - 1); i_2++) {
+                linea = linea + "_";
             }
-        }
-        cadena = cadena + "\n";
+            linea = linea + "\n";
+            return linea;
+        };
+        cadena = cadena + fabricatronco();
     }
     console.log(cadena);
 };

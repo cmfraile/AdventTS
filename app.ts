@@ -1,21 +1,30 @@
 console.clear();
 
 const main = (altura:number) => {
-    //let valor = Math.ceil((altura / 2));
+    let hojas:number = 1;
+    let ancho:number = altura - 1;
     let cadena:string = "";
 
-    for(let i = 1 ; i <= altura ; i++ ){
-        for( let y = 0 ; y <= altura -1 ; y++ ){
-            cadena = cadena + "_";
-        }
-        cadena = cadena + "\n";
+    //fabricamos las hojas:
+    for(let i = 1 ; i <= altura ; i++){
+        let linea:string = "";
+        for(let y = 1 ; y <= ancho ; y++){linea = linea + "_"}
+        for(let y = 1 ; y <= hojas ; y++){linea = linea + "*"}
+        for(let y = 1 ; y <= ancho ; y++){linea = linea + "_"}
+        cadena = cadena + linea + "\n" ; ancho-- ; hojas = hojas + 2;
     }
 
+    //fabricamos el tronco:
     for(let i = 1 ; i <= 2 ; i++){
-        for( let y = 1 ; y <= altura ; y++ ){
-            if(y == (Math.ceil(altura / 2)) ){ cadena = cadena + "#" }else{ cadena = cadena + "_" }
-        }
-        cadena = cadena + "\n";
+        const fabricatronco = () => {
+            let linea:string = "";
+            for(let i = 1 ; i <= (altura-1) ; i++){linea = linea + "_";}
+            linea = linea + "#";
+            for(let i = 1 ; i <= (altura-1) ; i++){linea = linea + "_";}
+            linea = linea + "\n";
+            return linea;
+        };
+        cadena = cadena + fabricatronco();
     }
 
     console.log(cadena);
