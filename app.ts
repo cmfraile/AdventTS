@@ -1,36 +1,31 @@
 console.clear();
 
-const main = (height:number) => {
+const xmas = new Date(2021,11,25);
+/*
 
-    if(height < 0 || height > 100){return};
 
-    let hojas:number = 1;
-    let ancho:number = height - 1;
-    let cadena:string = "";
+const datearray = [new Date('Dec 1, 2021'),new Date('Dec 24, 2021 00:00:01'),new Date('Dec 24, 2021 23:59:59'),new Date("December 20, 2021 03:24:00")];
+const datearray = [new Date('Dec 26, 2021'),new Date(2022,2,15)];
 
-    //fabricamos las hojas:
-    for(let i = 1 ; i <= height ; i++){
-        let linea:string = "";
-        for(let y = 1 ; y <= ancho ; y++){linea = linea + "_"}
-        for(let y = 1 ; y <= hojas ; y++){linea = linea + "*"}
-        for(let y = 1 ; y <= ancho ; y++){linea = linea + "_"}
-        cadena = cadena + linea + "\n" ; ancho-- ; hojas = hojas + 2;
-    }
+datearray.forEach((x,index) => { datearray[index].setHours(x.getHours() + 1) });
 
-    //fabricamos el tronco:
-    for(let i = 1 ; i <= 2 ; i++){
-        const fabricatronco = () => {
-            let linea:string = "";
-            for(let i = 1 ; i <= (height-1) ; i++){linea = linea + "_";}
-            linea = linea + "#";
-            for(let i = 1 ; i <= (height-1) ; i++){linea = linea + "_";}
-            if(i == 1){ linea = linea + "\n"; } else { linea = linea };
-            return linea;
-        };
-        cadena = cadena + fabricatronco();
-    }
+const main = () => {
+    const datexmas = new Date(hoy.getFullYear(),11,25,1);
+    datearray.forEach(x => {
+        console.log(x,"--", (datexmas.getDate() - x.getDate()) );
+    });
 
-    console.log(cadena);
+}
+*/
+
+const hoy = new Date();
+const datearray = [new Date('Dec 1, 2021'),new Date('Dec 24, 2021 00:00:01'),new Date('Dec 24, 2021 23:59:59'),new Date("December 20, 2021 03:24:00"),new Date('Dec 25, 2021'),new Date('Dec 26, 2021'),new Date('Dec 31, 2021'),new Date('Jan 1, 2022 00:00:01'),new Date('Jan 1, 2022 23:59:59')];
+
+const main = () => {
+
+    datearray.forEach((x,index) => {
+        console.log(xmas.getDate() - x.getDate());
+    });
 }
 
-main(9);
+main()
