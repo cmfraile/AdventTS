@@ -3,7 +3,7 @@ console.clear();
 const paresobj = {notas: [6, 7, 1, 2],objetivo: 8};
 
 const main = (notasarr:number[],obj:number) => {
-    let caso:any = [];
+    let caso:any = []; let intentos:any = [];
     notasarr.forEach((x,index1) => {
         notasarr.forEach((y,index2) => {
             if(index1 !== index2){
