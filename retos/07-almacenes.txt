@@ -40,4 +40,3 @@ const main = (store:any,product:string) => {
 };
 
 console.log(main(store1,'sprite'));
-

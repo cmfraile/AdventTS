@@ -1,33 +1,47 @@
 "use strict";
 console.clear();
-var paresresult = { notas: [-3, -2, 7, -5], resultetivo: 10 };
-var main = function (numbers, result) {
-    var caso = [];
-    for (var x = 1; x <= numbers.length; x++) {
-        var key = false;
-        if (key) {
-            break;
+var store1 = {
+    'estanteria1': {
+        'cajon1': {
+            'producto1': 'coca-cola',
+            'producto2': 'fanta',
+            'producto3': 'sprite'
         }
-        ;
-        for (var y = 1; y <= numbers.length; y++) {
-            if (x !== y) {
-                if (paresresult.notas[x - 1] + paresresult.notas[y - 1] == result) {
-                    caso = [paresresult.notas[x - 1], paresresult.notas[y - 1]];
+    },
+    'estanteria2': {
+        'cajon1': 'vacio',
+        'cajon2': {
+            'producto1': 'pantalones',
+            'producto2': 'camiseta' // <- ¡Está aquí!
+        }
+    }
+};
+var store2 = {
+    'baul': {
+        'fondo': {
+            'objeto': 'cd-rom',
+            'otro-objeto': 'disquette',
+            'otra-cosa': 'mando'
+        }
+    }
+};
+var main = function (store, product) {
+    var objetos = [];
+    for (var x in store) {
+        for (var y in store[x]) {
+            for (var z in store[x][y]) {
+                if (store[x][y][z].length !== 1) {
+                    objetos.push(store[x][y][z]);
                 }
             }
-            if (caso.length > 0) {
-                key = true;
-                break;
-            }
         }
     }
-    if (caso.length == 0) {
-        return null;
+    if (objetos.indexOf(product) !== -1) {
+        return true;
     }
     else {
-        return caso;
+        return false;
     }
-    ;
 };
-console.log(main(paresresult.notas, paresresult.resultetivo));
+console.log(main(store1, 'sprite'));
 //# sourceMappingURL=app.js.map
