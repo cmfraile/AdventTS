@@ -1,7 +1,5 @@
-//https://adventjs.dev/challenges/06
 console.clear();
 
-<<<<<<< HEAD
 const pricesBtc = [39, 18, 29, 25, 34, 32, 5];
 const pricesDoge = [18, 15, 12, 11, 9, 7]
 
@@ -22,11 +20,3 @@ const main = (prices:number[]) => {
 }
 
 main(pricesDoge);
-
-=======
-const main = () => {
-
-}
-
-main();
->>>>>>> master
