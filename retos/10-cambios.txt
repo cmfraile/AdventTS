@@ -20,15 +20,3 @@ const main = (change:number) => {
 }
 
 console.log(main(14));
-
-  /*while(contado < change){
-    let indice = 0;
-    console.log(indice);
-    if(contado + coins[indice] < change){
-      change = change + coins[indice];
-      cambiobj[`${coins[indice]}c`]++;
-    } else {
-      indice++
-    }
-  }*/
-
