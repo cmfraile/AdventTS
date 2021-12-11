@@ -1,30 +1,16 @@
 "use strict";
 console.clear();
-var coins = [50, 20, 10, 5, 2, 1];
-var main = function (change) {
-    var contado = 0;
-    var indice = 0;
-    var cambiobj = { 50: 0, 20: 0, 10: 0, 5: 0, 2: 0, 1: 0 };
-    while (contado < change) {
-        if ((contado + coins[indice]) <= change) {
-            contado += coins[indice];
-            cambiobj["".concat(coins[indice])]++;
-        }
-        else {
-            indice++;
-        }
+var main = function (veces) {
+    var precio = 12;
+    var precioinfiel = 12 * veces;
+    var preciofidelidad = 250;
+    var precioida = precio;
+    for (var i = 1; i <= veces; i++) {
+        precioida == precioida * 0.75;
     }
-    return [cambiobj[1], cambiobj[2], cambiobj[5], cambiobj[10], cambiobj[20], cambiobj[50]];
+    console.log(precioida);
+    preciofidelidad += precioida;
+    console.log({ precioinfiel: precioinfiel, preciofidelidad: preciofidelidad });
 };
-console.log(main(14));
-/*while(contado < change){
-  let indice = 0;
-  console.log(indice);
-  if(contado + coins[indice] < change){
-    change = change + coins[indice];
-    cambiobj[`${coins[indice]}c`]++;
-  } else {
-    indice++
-  }
-}*/
+console.log(main(20));
 //# sourceMappingURL=app.js.map
