@@ -20,4 +20,3 @@ const main = (prices:number[]) => {
 }
 
 main(pricesDoge);
-
