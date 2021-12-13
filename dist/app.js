@@ -5,7 +5,7 @@ var main = function (obstacles) {
     obstacles = obstacles.sort(function (a, b) { return a - b; });
     var _loop_1 = function (i) {
         var saltos = [];
-        for (var y = 0; y <= 10; y++) {
+        for (var y = 0; y <= obstacles[obstacles.length - 1]; y++) {
             if (y % i == 0) {
                 saltos.push(y);
             }
@@ -19,7 +19,7 @@ var main = function (obstacles) {
         }
         ;
     };
-    for (var i = 1; i <= 10; i++) {
+    for (var i = 1; i <= obstacles[obstacles.length - 1]; i++) {
         var state_1 = _loop_1(i);
         if (typeof state_1 === "object")
             return state_1.value;
