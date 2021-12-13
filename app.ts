@@ -1,20 +1,19 @@
 console.clear();
 
-const main = (times:number) => {
-  const gastonormal = 12 * times;
-  let gastofidelidad = 250;
-  let idafidelidad = 12;
-  let fidelidadviabletimes = 0;
+const obs = [5, 3, 6, 7, 9]
 
-  for(let i = 1 ; i<=times; i++){
-    idafidelidad *= 0.75;
-    gastofidelidad = gastofidelidad + idafidelidad;
-  }
-  gastofidelidad = Number(gastofidelidad.toFixed(2));
+const main = (obstaculos:number[]) => {
+  obstaculos = obstaculos.sort((a,b) => {return a - b});
+  let saltos:any[] = [];
+  let saltocontador:number = 1;
+    for(let i = 0 ; i <= 10 ; i++){
+      if(i%saltocontador == 0){saltos.push(i)};
+      saltos.forEach((x,index) => {if(obstaculos.includes(x)){saltos[index] = "X"}});
+    };
+  console.log(saltos);
 
-  if(gastofidelidad < gastonormal){return true}else{return false};
 }
 
-console.log(main(24));
+console.log(main(obs));
 
 
