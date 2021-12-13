@@ -1,17 +1,17 @@
 console.clear();
 
-const obs = [5, 3, 6, 7, 9]
+const obs = [14, 10, 8, 2, 3, 6]
 
-const main = (obstaculos:number[]) => {
-  obstaculos = obstaculos.sort((a,b) => {return a - b});
-  let saltos:any[] = [];
-  let saltocontador:number = 1;
-    for(let i = 0 ; i <= 10 ; i++){
-      if(i%saltocontador == 0){saltos.push(i)};
-      saltos.forEach((x,index) => {if(obstaculos.includes(x)){saltos[index] = "X"}});
-    };
-  console.log(saltos);
-
+const main = (obstacles:number[]) => {
+  obstacles = obstacles.sort((a,b) => {return a - b});
+  for(let i = 1 ; i <= 10 ; i++){
+    let saltos:any[] = [];
+    for(let y = 0 ; y <= 10 ; y++){
+      if(y%i == 0){saltos.push(y)};
+      saltos.forEach((x,index) => {if(obstacles.includes(x)){saltos[index] = "X"}});
+    }
+    if(!saltos.includes("X")){return saltos[1]};
+  }
 }
 
 console.log(main(obs));
