@@ -1,16 +1,22 @@
 "use strict";
 console.clear();
-var main = function (veces) {
-    var precio = 12;
-    var precioinfiel = 12 * veces;
-    var preciofidelidad = 250;
-    var precioida = precio;
-    for (var i = 1; i <= veces; i++) {
-        precioida == precioida * 0.75;
+var main = function (times) {
+    var gastonormal = 12 * times;
+    var gastofidelidad = 250;
+    var idafidelidad = 12;
+    var fidelidadviabletimes = 0;
+    for (var i = 1; i <= times; i++) {
+        idafidelidad *= 0.75;
+        gastofidelidad = gastofidelidad + idafidelidad;
     }
-    console.log(precioida);
-    preciofidelidad += precioida;
-    console.log({ precioinfiel: precioinfiel, preciofidelidad: preciofidelidad });
+    gastofidelidad = Number(gastofidelidad.toFixed(2));
+    if (gastofidelidad < gastonormal) {
+        return true;
+    }
+    else {
+        return false;
+    }
+    ;
 };
-console.log(main(20));
+console.log(main(24));
 //# sourceMappingURL=app.js.map
