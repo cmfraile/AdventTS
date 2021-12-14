@@ -23,5 +23,3 @@ const main = (gifs:string[]) => {
 }
 
 console.log(main(arraygft));
-
-
